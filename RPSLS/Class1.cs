@@ -41,8 +41,20 @@ namespace RPSLS
         }
         public void CreateBout(string player2Type)
         {
-            Player player1 = new Player("human");
-            Player player2 = new Player(player2Type);
+            Player player1 = new HumanPlayer("first");
+            if (player2Type == "humman")
+            {
+                HumanPlayer player2 = new HumanPlayer("second");
+            }
+            else
+            {
+                CpuPlayer player2 = new CpuPlayer("second");
+            }
+            
+        }
+        public void CompareThrows(Player playerFirst, Player playerSecond)
+        {
+
         }
 
 

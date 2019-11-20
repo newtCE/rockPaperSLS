@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Player
+    public abstract class Player
     {
-        public string playerNumber;
         public int boutScore;
+        public string outPutGesture;
 
-        public string SelectGesture(string gestureThrown)
+        public void SelectGesture(string gestureThrown)
         {
-            public string outPutGesture;
+            
             switch (gestureThrown)
             {
                 case "1":
-                outPutGesture="Rock";
+                outPutGesture ="Rock";
                 break;
                 case "2":
                 outPutGesture="Paper";
