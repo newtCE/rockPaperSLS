@@ -14,7 +14,10 @@ namespace RPSLS
         }
         public override string GestureMethod()
         {
-            string choiceNumber = "1";
+            // Random rng = new Random();
+            //rng.Next(1, 5);
+            int rng = 2;
+            string choiceNumber = Convert.ToString(rng);
             return choiceNumber;
         }
     }

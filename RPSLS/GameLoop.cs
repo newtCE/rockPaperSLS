@@ -47,14 +47,14 @@ namespace RPSLS
         public void CreateBout(string player2Type)
         {
             currentRound = 1;
-            HumanPlayer player1 = new HumanPlayer("1");
-            if (player2Type == "humman")
+            player1 = new HumanPlayer("1");
+            if (player2Type == "human")
             {
-                HumanPlayer player2 = new HumanPlayer("2");
+                player2 = new HumanPlayer("2");
             }
             else
             {
-                CpuPlayer player2 = new CpuPlayer("2");
+                player2 = new CpuPlayer("2");
             }
             player1Throw = player1.SelectGesture(player1.GestureMethod());//1st throw
             player2Throw = player2.SelectGesture(player2.GestureMethod());
@@ -67,10 +67,14 @@ namespace RPSLS
                 if (player1.boutScore < player2.boutScore)
                 {
                     Console.WriteLine("Player 2 wins the game!!");
+                    Console.ReadLine();
+                    
+
                 }
                 else
                 {
-                    Console.WriteLine("Player 2 wins the game!!");
+                    Console.WriteLine("Player 1 wins the game!!");
+                    Console.ReadLine();
                 }
             }
             else
@@ -86,6 +90,7 @@ namespace RPSLS
             if (player1Throw == player2Throw)
             {
                 Console.WriteLine("This round is a tie!!");
+                CheckGame();
             }
             else
             {
@@ -118,12 +123,14 @@ namespace RPSLS
                     Console.WriteLine("Player 2 Wins the round!");
                     player2.boutScore = player2.boutScore + 1;
                     currentRound = currentRound + 1;
+                    CheckGame();
                 }
                 else
                 {
                     Console.WriteLine("Player 1 Wins the round!");
                     player1.boutScore = player1.boutScore + 1;
                     currentRound = currentRound + 1;
+                    CheckGame();
                 }
                 
             }
