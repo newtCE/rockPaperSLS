@@ -16,8 +16,9 @@ namespace RPSLS
         {
             // Random rng = new Random();
             //rng.Next(1, 5);
-            int rng = 2;
-            string choiceNumber = Convert.ToString(rng);
+            Random rng = new Random();
+            int rngNum = rng.Next(1, 5);
+            string choiceNumber = Convert.ToString(rngNum);
             return choiceNumber;
         }
     }

@@ -68,8 +68,6 @@ namespace RPSLS
                 {
                     Console.WriteLine("Player 2 wins the game!!");
                     Console.ReadLine();
-                    
-
                 }
                 else
                 {
