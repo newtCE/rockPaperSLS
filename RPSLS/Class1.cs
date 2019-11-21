@@ -11,6 +11,12 @@ namespace RPSLS
         public int currentRound;
         public string gameMode;
         public string player2Type;
+        public string player1Throw;
+        public string player2Throw;
+        public Player player1;
+        public Player player2;
+        public string loseOutcome1 = "Paper";
+        public string loseOutcome2 = "Spock";
 
         public void SelectGameMode()
         {
@@ -30,7 +36,6 @@ namespace RPSLS
                         CreateBout(player2Type);
                         break;
                 }
-
             }
             else
             {
@@ -41,19 +46,87 @@ namespace RPSLS
         }
         public void CreateBout(string player2Type)
         {
-            Player player1 = new HumanPlayer("first");
+            currentRound = 1;
+            HumanPlayer player1 = new HumanPlayer("1");
             if (player2Type == "humman")
             {
-                HumanPlayer player2 = new HumanPlayer("second");
+                HumanPlayer player2 = new HumanPlayer("2");
             }
             else
             {
-                CpuPlayer player2 = new CpuPlayer("second");
+                CpuPlayer player2 = new CpuPlayer("2");
             }
-            
+            player1Throw = player1.SelectGesture(player1.GestureMethod());//1st throw
+            player2Throw = player2.SelectGesture(player2.GestureMethod());
+            CompareThrows(player1, player2);           
         }
-        public void CompareThrows(Player playerFirst, Player playerSecond)
+        public void CheckGame()
         {
+            if (currentRound > 3)
+            {
+                if (player1.boutScore < player2.boutScore)
+                {
+                    Console.WriteLine("Player 2 wins the game!!");
+                }
+                else
+                {
+                    Console.WriteLine("Player 2 wins the game!!");
+                }
+            }
+            else
+            {
+                player1Throw = player1.SelectGesture(player1.GestureMethod());//2nd throw onward
+                player2Throw = player2.SelectGesture(player2.GestureMethod());
+                CompareThrows(player1, player2);
+            }
+        }
+        public void CompareThrows(Player player1, Player player2)
+        {
+            Console.WriteLine("Player 1 throws " + player1Throw + " !\nPlayer 2 throws " + player2Throw + " !");
+            if (player1Throw == player2Throw)
+            {
+                Console.WriteLine("This round is a tie!!");
+            }
+            else
+            {
+                if (player1Throw == "Rock"){
+                    loseOutcome1 = "Paper";
+                    loseOutcome2 = "Spock";
+                }
+                else if (player1Throw == "Paper")
+                {
+                    loseOutcome1 = "Scissors";
+                    loseOutcome2 = "Lizard";
+                }
+                else if (player1Throw == "Scissors")
+                {
+                    loseOutcome1 = "Rock";
+                    loseOutcome2 = "Spock";
+                }
+                else if (player1Throw == "Lizard")
+                {
+                    loseOutcome1 = "Rock";
+                    loseOutcome2 = "Scissors";
+                }
+                else //spock
+                {
+                    loseOutcome1 = "Paper";
+                    loseOutcome2 = "Lizard";
+                }
+                if (player2Throw == loseOutcome1 || player2Throw == loseOutcome2)
+                    {
+                    Console.WriteLine("Player 2 Wins the round!");
+                    player2.boutScore = player2.boutScore + 1;
+                    currentRound = currentRound + 1;
+                }
+                else
+                {
+                    Console.WriteLine("Player 1 Wins the round!");
+                    player1.boutScore = player1.boutScore + 1;
+                    currentRound = currentRound + 1;
+                }
+                
+            }
 
         }
 

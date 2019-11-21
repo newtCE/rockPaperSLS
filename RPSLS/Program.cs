@@ -12,6 +12,7 @@ namespace RPSLS
         {
             GameLoop newGame = new GameLoop();
             newGame.SelectGameMode();
+            newGame.CreateBout(newGame.player2Type);
         }
     }
 }

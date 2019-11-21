@@ -8,8 +8,22 @@ namespace RPSLS
 {
     class HumanPlayer:Player
     {
+        public string playerNumber;
+        string playerInput;
+
         public HumanPlayer(string playerNumber)
         {
+            this.playerNumber = playerNumber;
+        }
+        public override string GestureMethod()
+        {
+            
+            while (playerInput != "1" || playerInput != "2" || playerInput != "3" || playerInput != "4" || playerInput != "5")
+            {
+                Console.WriteLine("Player " + playerNumber + " select your throw!\n1.)Rock\n2.)Paper\n3.)Scissors\n4.)Lizard\n5.)Spock");
+                playerInput = Console.ReadLine();
+            }
+            return playerInput;
 
         }
     }

@@ -10,28 +10,17 @@ namespace RPSLS
     {
         public int boutScore;
         public string outPutGesture;
+        public List<string> throwList = new List<string>() {"Empty Spot","Rock","Paper","Scissors","Lizard","Spock" };
 
-        public void SelectGesture(string gestureThrown)
+
+        public virtual string GestureMethod(){
+            return "this should never happen";
+        }
+
+        public string SelectGesture(string gestureThrown)
         {
-            
-            switch (gestureThrown)
-            {
-                case "1":
-                outPutGesture ="Rock";
-                break;
-                case "2":
-                outPutGesture="Paper";
-                break;
-                case "3":
-                outPutGesture="Scissors";
-                break;
-                case "4":
-                outPutGesture="Lizard";
-                break;
-                case "5":
-                outPutGesture="Spock";
-                break;
-            }
+            outPutGesture = throwList[Convert.ToInt32(gestureThrown)];
+            return outPutGesture;
         }
     }
 }

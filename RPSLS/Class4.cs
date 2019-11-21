@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class CpuPlayer:Player
+    class CpuPlayer : Player
     {
         public CpuPlayer(string playerNumber)
         {
 
+        }
+        public override string GestureMethod()
+        {
+            string choiceNumber = "1";
+            return choiceNumber;
         }
     }
 }
