@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class HumanPlayer:Player
+    class Human:Player
     {
         public string playerNumber;
         string playerInput;
 
-        public HumanPlayer(string playerNumber)
+        public Human(string playerNumber)
         {
             this.playerNumber = playerNumber;
         }

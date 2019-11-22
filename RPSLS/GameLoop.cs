@@ -47,14 +47,14 @@ namespace RPSLS
         public void CreateBout(string player2Type)
         {
             currentRound = 1;
-            player1 = new HumanPlayer("1");
+            player1 = new Human("1");
             if (player2Type == "human")
             {
-                player2 = new HumanPlayer("2");
+                player2 = new Human("2");
             }
             else
             {
-                player2 = new CpuPlayer("2");
+                player2 = new Cpu("2");
             }
             player1Throw = player1.SelectGesture(player1.GestureMethod());//1st throw
             player2Throw = player2.SelectGesture(player2.GestureMethod());
@@ -92,9 +92,9 @@ namespace RPSLS
             }
             else
             {
-                if (player1Throw == "Rock"){
                     loseOutcome1 = "Paper";
                     loseOutcome2 = "Spock";
+                if (player1Throw == "Rock"){
                 }
                 else if (player1Throw == "Paper")
                 {

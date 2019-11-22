@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class CpuPlayer : Player
+    class Cpu : Player
     {
-        public CpuPlayer(string playerNumber)
+        public Cpu(string playerNumber)
         {
 
         }
