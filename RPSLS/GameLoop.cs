@@ -92,9 +92,10 @@ namespace RPSLS
             }
             else
             {
+
+                if (player1Throw == "Rock"){
                     loseOutcome1 = "Paper";
                     loseOutcome2 = "Spock";
-                if (player1Throw == "Rock"){
                 }
                 else if (player1Throw == "Paper")
                 {
